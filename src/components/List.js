@@ -25,7 +25,8 @@ export default class List extends Component {
     onAddWord() {
         const en = this.refs.txtEn.value;
         const vn = this.refs.txtVn.value;
-        console.log(en, vn);
+        const newWord = new NewWord(en, vn);
+        this.setState({ arrWords: [newWord].concat(this.state.arrWords) });
     }
 
     render() {
