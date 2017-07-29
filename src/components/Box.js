@@ -30,5 +30,3 @@ export default class Box extends Component {
         );
     }
 }
-
-// re nhanh
