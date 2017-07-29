@@ -1,11 +1,16 @@
 {
-  "name": "react2207",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/vanpho93/react2207.git",
-  "author": "Van Pho Nguyen <vanpho02@gmail.com>",
-  "license": "MIT",
+  "name": "demo-react",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "faker": "^4.1.0"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
