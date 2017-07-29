@@ -9,12 +9,13 @@ export default class Box extends Component {
     }
 
     up() {
-        // Loi nho o day
-        this.setState({ value: this.state.value + 1 });
+        // Loi nho o day // Chua chay xong lenh 13 -> 14
+        this.setState((prevState) => ({ value: prevState.value + 1 })); //50
+        this.setState((prevState) => ({ value: prevState.value + 1 })); //50
     }
 
     down() {
-        this.setState({ value: this.state.value - 1 });
+        this.setState({ value: 100 });
     }
 
     render() {
