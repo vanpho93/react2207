@@ -1,10 +1,9 @@
 import React from 'react';
-import Word from './Word';
+import Box from './Box';
 
 const App = () => (
     <div>
-        <Word en="Good morning" vn="Chào buổi sáng" />
-        <Word en="Hello" vn="Xin chào" />
+        <Box />
     </div>
 );
 
