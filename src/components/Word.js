@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+// dummies component 
 
-const Word = () => (
-    <div>
-        <h3>Good morning</h3>
-        <p>Chào buổi sáng</p>
-    </div>
-); // => react.createElement()
+// const Word = ({ en, vn }) => (
+//     <div>
+//         <h3>{en}</h3>
+//         <p>{vn}</p>
+//     </div>
+// ); 
+
+class Word extends Component {
+    render() {
+        //Lay props ntn?
+        const { en, vn } = this.props;
+        return (
+            <div>
+                <h3>{en}</h3>
+                <p>{vn}</p>
+            </div>
+        );
+    }
+}
 
 export default Word;
