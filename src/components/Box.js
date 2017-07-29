@@ -18,9 +18,18 @@ export default class Box extends Component {
     }
 
     render() {
+        const { value } = this.state;
+        const color = value % 2 === 0 ? 'green' : 'red';
+        const style = { color, fontWeight: 'bold' };
+        const containerStyle = { 
+            backgroundColor: '#E4F6D4', 
+            padding: 10, 
+            width: 100,
+            margin: 10
+        };
         return (
-            <div>
-                <p style={{ color: 'green', fontWeight: 'bold' }}>Value: {this.state.value}</p>
+            <div style={containerStyle}>
+                <p style={style}>Value: {value}</p>
                 <button onClick={this.up}>Up</button>
                 <button onClick={this.down}>Down</button>
             </div>
