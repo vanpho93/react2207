@@ -1,9 +1,15 @@
 import React from 'react';
-import List from './List';
+import Card from './Card';
 
 const App = () => (
     <div>
-        <List />
+        <Card>AAA</Card>
+        <Card>
+            <p>Hello</p>
+        </Card>
+        <Card>
+            <h3>Hello</h3>
+        </Card>
     </div>
 );
 

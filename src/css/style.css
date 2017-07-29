@@ -4,3 +4,10 @@
     margin: 10px;
     width: 100px;
 }
+
+.card {
+    border-radius: 5px;
+    background-color: #D5D5D5;
+    padding: 10px;
+    margin: 10px;
+}
