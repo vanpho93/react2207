@@ -24,6 +24,7 @@ export default class List extends Component {
         };
         this.addWord = this.addWord.bind(this);
         this.removeWord = this.removeWord.bind(this);
+        this.toggleMemorized = this.toggleMemorized.bind(this);
     }
 
     addWord(en, vn) {
@@ -35,6 +36,11 @@ export default class List extends Component {
         this.setState(prevState => ({
             arrWords: prevState.arrWords.filter((e, i) => i !== index)
         }));
+    }
+
+    toggleMemorized(index) {
+        this.state.arrWords[index].memorized = !this.state.arrWords[index].memorized;
+        this.setState(this.state);
     }
 
     render() {
@@ -51,6 +57,7 @@ export default class List extends Component {
                         key={e.en} 
                         index={i}
                         onRemoveWord={this.removeWord}
+                        onToggleMemorized={this.toggleMemorized}
                     />
                 ))}
 
