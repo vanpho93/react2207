@@ -1,9 +1,9 @@
 import React from 'react';
-import Parent from './Parent';
+import List from './List';
 
 const App = () => (
     <div>
-        <Parent />
+        <List />
     </div>
 );
 

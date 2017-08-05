@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Word from './Word';
+import WordForm from  './WordForm';
 
 class NewWord {
     constructor(en, vn) {
@@ -32,13 +33,7 @@ export default class List extends Component {
     render() {
         return (
             <div>
-                <div style={{ backgroundColor: 'gray', padding: 10, width: 150 }}>
-                    <input type="text" placeholder="Enter English word" ref="txtEn" />
-                    <br /><br />
-                    <input type="text" placeholder="Enter Vietnamese meaning" ref="txtVn" />
-                    <br /><br />
-                    <button onClick={this.onAddWord}>Add</button>
-                </div>
+                <WordForm />
                 { this.state.arrWords.map(e => <Word en={e.en} vn={e.vn} key={e.en} />) }
             </div>
         );
