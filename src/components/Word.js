@@ -13,7 +13,7 @@ class Word extends Component {
 
     render() {
         const { memorized } = this.state;
-        const { en, vn } = this.props;
+        const { en, vn, onRemoveWord, index } = this.props;
         const englistText = memorized ? '-------' : en;
         const buttonText = memorized ? 'Fotgot' : 'Memorized';
         return (
@@ -21,6 +21,7 @@ class Word extends Component {
                 <h3>{ englistText }</h3>
                 <p>{vn}</p>
                 <button onClick={this.toggleMemorized}>{ buttonText }</button>
+                <button onClick={() => onRemoveWord(index)}>DELETE</button>
             </div>
         );
     }

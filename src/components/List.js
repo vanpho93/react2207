@@ -21,6 +21,7 @@ export default class List extends Component {
             ]
         };
         this.addWord = this.addWord.bind(this);
+        this.removeWord = this.removeWord.bind(this);
     }
 
     addWord(en, vn) {
@@ -28,11 +29,26 @@ export default class List extends Component {
         this.setState({ arrWords: [newWord].concat(this.state.arrWords) });
     }
 
+    removeWord(index) {
+        this.setState(prevState => ({
+            arrWords: prevState.arrWords.filter((e, i) => i !== index)
+        }));
+    }
+
     render() {
+        const { arrWords } = this.state;
         return (
             <div>
                 <WordForm onAddWord={this.addWord} />
-                { this.state.arrWords.map(e => <Word en={e.en} vn={e.vn} key={e.en} />) }
+                    { arrWords.map((e, i) => (
+                        <Word 
+                            en={e.en} 
+                            vn={e.vn} 
+                            key={e.en} 
+                            index={i}
+                            onRemoveWord={this.removeWord}
+                        />
+                    ))}
             </div>
         );
     }
