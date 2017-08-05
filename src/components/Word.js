@@ -7,8 +7,8 @@ class Word extends Component {
     }
 
     toggleMemorized() {
-        const { index, onToggleMemorized } = this.props;
-        onToggleMemorized(index);
+        const { en, onToggleMemorized } = this.props;
+        onToggleMemorized(en);
     }
 
     render() {

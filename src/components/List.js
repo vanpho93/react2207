@@ -40,10 +40,10 @@ export default class List extends Component {
         }));
     }
 
-    toggleMemorized(index) {
+    toggleMemorized(en) {
         this.setState(prevState => {
             const newArrWords = prevState.arrWords.map((e, i) => {
-                if (i !== index) return e;
+                if (e.en !== en) return e;
                 return { ...e, memorized: !e.memorized };
             });
             return { arrWords: newArrWords };
@@ -64,7 +64,10 @@ export default class List extends Component {
         return (
             <div>
                 {/* <WordForm onAddWord={this.addWord} /> */}
-                <WordFilter onChangeFilterStatus={this.changeFilterStatus} />
+                <WordFilter 
+                    filterStatus={filterStatus}
+                    onChangeFilterStatus={this.changeFilterStatus} 
+                />
                 { arrWordsFiltered.map((e, i) => (
                     <Word 
                         en={e.en} 
@@ -76,7 +79,6 @@ export default class List extends Component {
                         onToggleMemorized={this.toggleMemorized}
                     />
                 ))}
-
             </div>
         );
     }
