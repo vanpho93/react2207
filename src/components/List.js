@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Word from './Word';
 import WordForm from  './WordForm';
+import WordFilter from './WordFilter';
 
 class NewWord {
-    constructor(en, vn) {
+    constructor(en, vn, memorized) {
         this.en = en;
         this.vn = vn;
+        this.memorized = memorized;
     }
 }
 
@@ -15,9 +17,9 @@ export default class List extends Component {
         super(props);
         this.state = { 
             arrWords:  [
-                new NewWord('Hello', 'Xin chao'),
-                new NewWord('Good bye!', 'Tam biet'),
-                new NewWord('Moring', 'Buoi sang')
+                new NewWord('Hello', 'Xin chao', false),
+                new NewWord('Good bye!', 'Tam biet', true),
+                new NewWord('Moring', 'Buoi sang', false)
             ]
         };
         this.addWord = this.addWord.bind(this);
@@ -39,16 +41,19 @@ export default class List extends Component {
         const { arrWords } = this.state;
         return (
             <div>
-                <WordForm onAddWord={this.addWord} />
-                    { arrWords.map((e, i) => (
-                        <Word 
-                            en={e.en} 
-                            vn={e.vn} 
-                            key={e.en} 
-                            index={i}
-                            onRemoveWord={this.removeWord}
-                        />
-                    ))}
+                {/* <WordForm onAddWord={this.addWord} /> */}
+                <WordFilter />
+                { arrWords.map((e, i) => (
+                    <Word 
+                        en={e.en} 
+                        vn={e.vn} 
+                        memorized={e.memorized}
+                        key={e.en} 
+                        index={i}
+                        onRemoveWord={this.removeWord}
+                    />
+                ))}
+
             </div>
         );
     }

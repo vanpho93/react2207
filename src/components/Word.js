@@ -3,17 +3,14 @@ import React, { Component } from 'react';
 class Word extends Component {
     constructor(props) {
         super(props);
-        this.state = { memorized: false };
         this.toggleMemorized = this.toggleMemorized.bind(this);
     }
 
     toggleMemorized() {
-        this.setState({ memorized: !this.state.memorized });
     }
 
     render() {
-        const { memorized } = this.state;
-        const { en, vn, onRemoveWord, index } = this.props;
+        const { en, vn, onRemoveWord, index, memorized } = this.props;
         const englistText = memorized ? '-------' : en;
         const buttonText = memorized ? 'Fotgot' : 'Memorized';
         return (
