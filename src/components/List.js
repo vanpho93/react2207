@@ -20,12 +20,10 @@ export default class List extends Component {
                 new NewWord('Moring', 'Buoi sang')
             ]
         };
-        this.onAddWord = this.onAddWord.bind(this);
+        this.addWord = this.addWord.bind(this);
     }
 
-    onAddWord() {
-        const en = this.refs.txtEn.value;
-        const vn = this.refs.txtVn.value;
+    addWord(en, vn) {
         const newWord = new NewWord(en, vn);
         this.setState({ arrWords: [newWord].concat(this.state.arrWords) });
     }
@@ -33,7 +31,7 @@ export default class List extends Component {
     render() {
         return (
             <div>
-                <WordForm />
+                <WordForm onAddWord={this.addWord} />
                 { this.state.arrWords.map(e => <Word en={e.en} vn={e.vn} key={e.en} />) }
             </div>
         );
