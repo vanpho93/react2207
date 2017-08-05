@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 export default class MyButton extends Component {
 
     childUp() {
-        const simpleBox = this.props.parent;
-        simpleBox.setState(prevState => ({ value: prevState.value + 1 }));
+        // const simpleBox = this.props.parent;
+        // simpleBox.setState(prevState => ({ value: prevState.value + 1 }));
+        this.props.onAdd();
     }
 
     render() {

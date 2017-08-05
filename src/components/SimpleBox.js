@@ -17,7 +17,7 @@ export default class SimpleBox extends Component {
             <div>
                 <p>{this.state.value}</p>
                 <button onClick={this.up}>Up</button>
-                <MyButton parent={this}></MyButton>
+                <MyButton onAdd={this.up}></MyButton>
             </div>
         );
     }
