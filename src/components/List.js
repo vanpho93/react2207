@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Word from './Word';
-import WordForm from  './WordForm';
+// import WordForm from  './WordForm';
 import WordFilter from './WordFilter';
 
 class NewWord {
@@ -20,11 +20,13 @@ export default class List extends Component {
                 new NewWord('Hello', 'Xin chao', false),
                 new NewWord('Good bye!', 'Tam biet', true),
                 new NewWord('Moring', 'Buoi sang', false)
-            ]
+            ],
+            filterStatus: 'SHOW_FORGOT'
         };
         this.addWord = this.addWord.bind(this);
         this.removeWord = this.removeWord.bind(this);
         this.toggleMemorized = this.toggleMemorized.bind(this);
+        this.changeFilterStatus = this.changeFilterStatus.bind(this);
     }
 
     addWord(en, vn) {
@@ -39,17 +41,31 @@ export default class List extends Component {
     }
 
     toggleMemorized(index) {
-        this.state.arrWords[index].memorized = !this.state.arrWords[index].memorized;
-        this.setState(this.state);
+        this.setState(prevState => {
+            const newArrWords = prevState.arrWords.map((e, i) => {
+                if (i !== index) return e;
+                return { ...e, memorized: !e.memorized };
+            });
+            return { arrWords: newArrWords };
+        });
+    }
+
+    changeFilterStatus(newStatus) {
+        this.setState({ filterStatus: newStatus });
     }
 
     render() {
-        const { arrWords } = this.state;
+        const { arrWords, filterStatus } = this.state;
+        const arrWordsFiltered = arrWords.filter(e => {
+            if(filterStatus === 'SHOW_MEMORIZED') return e.memorized;
+            if(filterStatus === 'SHOW_FORGOT') return !e.memorized;
+            return true;
+        });
         return (
             <div>
                 {/* <WordForm onAddWord={this.addWord} /> */}
-                <WordFilter />
-                { arrWords.map((e, i) => (
+                <WordFilter onChangeFilterStatus={this.changeFilterStatus} />
+                { arrWordsFiltered.map((e, i) => (
                     <Word 
                         en={e.en} 
                         vn={e.vn} 
