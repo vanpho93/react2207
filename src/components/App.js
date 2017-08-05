@@ -1,9 +1,9 @@
 import React from 'react';
-import SimpleBox from './SimpleBox';
+import Parent from './Parent';
 
 const App = () => (
     <div>
-        <SimpleBox />
+        <Parent />
     </div>
 );
 
